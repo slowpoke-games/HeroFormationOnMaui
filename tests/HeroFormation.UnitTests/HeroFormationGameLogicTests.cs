@@ -1,11 +1,10 @@
-namespace HeroFormation.UnitTests
+namespace HeroFormation.UnitTests;
+
+public class HeroFormationGameLogicTests
 {
-    public class HeroFormationGameLogicTests
+    [Fact]
+    public void CombatLogShouldGetAnEntryOnCombatActionTest()
     {
-        [Fact]
-        public void CombatLogShouldGetAnEntryOnCombatActionTest()
-        {
-            Assert.True(true);
-        }
+        Assert.True(true);
     }
 }

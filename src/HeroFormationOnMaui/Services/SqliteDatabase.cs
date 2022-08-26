@@ -1,33 +1,32 @@
 ﻿using SQLite;
 
-namespace HeroFormationOnMaui.Services
+namespace HeroFormationOnMaui.Services;
+
+public class SqliteDatabase
 {
-    public class SqliteDatabase
+    private readonly SQLiteAsyncConnection _connection;
+
+    public SqliteDatabase()
     {
-        private readonly SQLiteAsyncConnection _connection;
+        var dataDir = FileSystem.AppDataDirectory;
+        var databasePath = Path.Combine(dataDir, "HeroFormation.db");
 
-        public SqliteDatabase()
+        var dbEncryptionKey = SecureStorage.GetAsync("dbKey").Result;
+
+        if (string.IsNullOrEmpty(dbEncryptionKey))
         {
-            var dataDir = FileSystem.AppDataDirectory;
-            var databasePath = Path.Combine(dataDir, "HeroFormation.db");
-
-            var dbEncryptionKey = SecureStorage.GetAsync("dbKey").Result;
-
-            if (string.IsNullOrEmpty(dbEncryptionKey))
-            {
-                Guid g = new Guid();
-                dbEncryptionKey = g.ToString();
-                SecureStorage.SetAsync("dbKey", dbEncryptionKey);
-            }
-
-            var dbOptions = new SQLiteConnectionString(databasePath, true, key: dbEncryptionKey);
-            _connection = new SQLiteAsyncConnection(dbOptions);
-            _ = Initialise();
+            Guid g = new Guid();
+            dbEncryptionKey = g.ToString();
+            SecureStorage.SetAsync("dbKey", dbEncryptionKey);
         }
 
-        private async Task Initialise()
-        {
-            //await _connection.CreateTableAsync<>()
-        }
+        var dbOptions = new SQLiteConnectionString(databasePath, true, key: dbEncryptionKey);
+        _connection = new SQLiteAsyncConnection(dbOptions);
+        _ = Initialise();
+    }
+
+    private async Task Initialise()
+    {
+        //await _connection.CreateTableAsync<>()
     }
 }
