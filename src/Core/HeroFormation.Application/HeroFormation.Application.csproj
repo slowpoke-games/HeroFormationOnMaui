@@ -16,7 +16,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\CombatLog\Handlers\Commands\" />
+    <Folder Include="Features\CombatLog\Handlers\Queries\" />
+    <Folder Include="Features\CombatLog\Requests\Commands\" />
+    <Folder Include="Features\CombatLog\Requests\Queries\" />
     <Folder Include="Features\Combat\Handlers\Commands\" />
+    <Folder Include="Features\Combat\Requests\Commands\" />
   </ItemGroup>
 
 </Project>

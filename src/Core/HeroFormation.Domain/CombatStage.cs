@@ -6,4 +6,5 @@ public class CombatStage : BaseDomainEntity
 {
     public int StageNumber { get; set; }
     public bool IsSpecialStage { get; set; }
+    public bool IsBossStage { get; set; }
 }

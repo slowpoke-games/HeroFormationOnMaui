@@ -2,7 +2,7 @@
 
 namespace HeroFormation.Domain;
 
-public class CombatAllocation : BaseDomainEntity
+public class CombatLogRequest : BaseDomainRequest<CombatLog>
 {
 
 }

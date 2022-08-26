@@ -1,6 +1,6 @@
 ﻿using HeroFormation.Application.DTOs.Common;
 
-namespace HeroFormation.Application.DTOs;
+namespace HeroFormation.Application.DTOs.CombatLog;
 
 public class CombatLogDto : BaseDto
 {
